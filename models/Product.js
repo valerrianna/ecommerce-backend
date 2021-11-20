@@ -29,9 +29,9 @@ Product.init(
     stock: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue = 10,
-      validates: {
-        isNumeric = true
+      defaultValue: 10,
+      validate: {
+        isNumeric: true
       }
     },
     category_id: {
@@ -51,4 +51,4 @@ Product.init(
   }
 );
 
-// module.exports = Product;
+module.exports = Product;

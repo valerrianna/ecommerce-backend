@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
   // find all categories
   // be sure to include its associated Products
   Category.findAll()
-    .then(dbUserData => res.json(dbUserData))
+    .then(dbCategoryData => res.json(dbCategoryData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
@@ -22,12 +22,12 @@ router.get('/:id', (req, res) => {
       id: req.params.id
     }
   })
-    .then(dbUserData => {
-      if (!dbUserData) {
+    .then(dbCategoryData => {
+      if (!dbCategoryData) {
         res.status(404).json({ message: 'No category found with this id' });
         return;
       }
-      res.json(dbUserData);
+      res.json(dbCategoryData);
     })
     .catch(err => {
       console.log(err);
@@ -37,11 +37,9 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   Category.create({
-    productName: req.body.product_name,
-    price: req.body.price,
-    stock: req.body.stock
+    category_name: req.body.category_name,
   })
-    .then(dbUserData => res.json(dbUserData))
+    .then(dbCategoryData => res.json(dbCategoryData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
@@ -55,12 +53,12 @@ router.put('/:id', (req, res) => {
       id: req.params.id
     }
   })
-    .then(dbUserData => {
-      if (!dbUserData[0]) {
+    .then(dbCategoryData => {
+      if (!dbCategoryData[0]) {
         res.status(404).json({ message: 'No category found with this id' });
         return;
       }
-      res.json(dbUserData);
+      res.json(dbCategoryData);
     })
     .catch(err => {
       console.log(err);
@@ -75,12 +73,12 @@ router.delete('/:id', (req, res) => {
       id: req.params.id
     }
   })
-    .then(dbUserData => {
-      if (!dbUserData) {
+    .then(dbCategoryData => {
+      if (!dbCategoryData) {
         res.status(404).json({ message: 'No category found with this id' });
         return;
       }
-      res.json(dbUserData);
+      res.json(dbCategoryData);
     })
     .catch(err => {
       console.log(err);

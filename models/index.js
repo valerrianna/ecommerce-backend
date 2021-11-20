@@ -6,7 +6,7 @@ const Category = require('./Category');
 
 // Products belongsTo Category
 Product.belongsTo(Category, {
-  foreignKey: 'user_id',
+  foreignKey: 'category_id',
 });
 // Categories have many Products
 Category.hasMany(Product, {
